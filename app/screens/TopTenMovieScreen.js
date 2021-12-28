@@ -15,7 +15,7 @@ class TopTenMovieScreen extends Component {
     return (
       <View style={styles.backgroundContainer}>
         <View>
-          <Searchbar style={styles.searchContainer} placeholder="Top ten" />
+          <Searchbar style={styles.searchContainer} placeholder="Top Ten" />
         </View>
         <ScrollView
           showsVerticalScrollIndicator={false}

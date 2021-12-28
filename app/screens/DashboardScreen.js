@@ -5,6 +5,7 @@ import { createMaterialBottomTabNavigator } from "@react-navigation/material-bot
 import MovieListScreen from "./MovieListScreen";
 import FavoriteListScreen from "./FavoriteListScreen";
 import { LocalColors } from "../colors/Colors";
+import {Image,} from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import TopTenMovieScreen from "./TopTenMovieScreen";
 import SearchCategoryScreen from "./SearchCategoryScreen";
@@ -23,9 +24,12 @@ class DashboardScreen extends Component {
           component={MovieListScreen}
           options={{
             labeled: false,
-            tabBarLabel: "Movie List",
+            tabBarLabel: "Home",
             tabBarIcon: ({ color }) => (
-              <FontAwesome name="film" color={color} size={20} />
+              <Image
+              style={{height:20,width:30, resizeMode: "contain"}}
+                  source={require("../assets/clapboard_.png")}
+                />
             ),
           }}
         />
@@ -36,7 +40,10 @@ class DashboardScreen extends Component {
             labeled: false,
             tabBarLabel: "Category",
             tabBarIcon: ({ color }) => (
-              <FontAwesome name="film" color={color} size={20} />
+              <Image
+              style={{height:20,width:30, resizeMode: "contain"}}
+                  source={require("../assets/genre.png")}
+                />
             ),
           }}
         />
@@ -45,9 +52,12 @@ class DashboardScreen extends Component {
           component={TopTenMovieScreen}
           options={{
             labeled: false,
-            tabBarLabel: "Top Ten",
+            tabBarLabel: "TopTen",
             tabBarIcon: ({ color }) => (
-              <FontAwesome name="film" color={color} size={20} />
+              <Image
+              style={{height:25,width:30, resizeMode: "contain"}}
+                  source={require("../assets/top_ten_.png")}
+                />
             ),
           }}
         />
@@ -56,9 +66,12 @@ class DashboardScreen extends Component {
           component={FavoriteListScreen}
           options={{
             labeled: false,
-            tabBarLabel: "Favorite ist",
+            tabBarLabel: "Favorite",
             tabBarIcon: ({ color }) => (
-              <FontAwesome name="heart" color={color} size={20} />
+              <Image
+              style={{height:20,width:30, resizeMode: "contain"}}
+                  source={require("../assets/favorite.png")}
+                />
             ),
           }}
         />

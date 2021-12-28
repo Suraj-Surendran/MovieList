@@ -10,12 +10,13 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
+import CheckBox from "react-native-check-box";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import SelectDropdown from "react-native-select-dropdown";
 import DatePicker from "react-native-date-picker";
 import { LocalColors } from "../colors/Colors";
 class SignUpScreen extends Component {
-  state = { date: new Date(), open: false };
+  state = { date: new Date(), open: false, isSelected: false };
   onFocus = () => {
     this.setState({ open: true });
   };
@@ -59,9 +60,7 @@ class SignUpScreen extends Component {
               {/* Gender */}
               <SelectDropdown
                 data={gender}
-                onSelect={(selectedItem, index) => {
-                  console.log(selectedItem, index);
-                }}
+                onSelect={(selectedItem, index) => {}}
                 defaultButtonText={"Gender"}
                 buttonTextAfterSelection={(selectedItem, index) => {
                   return selectedItem;
@@ -122,6 +121,28 @@ class SignUpScreen extends Component {
                 placeholder="Username"
                 keyboardType="default"
               />
+              <View
+                style={{
+                  flexDirection: "row",
+                  marginLeft: 10,
+                  marginRight: 15,
+                  marginTop: 20,
+                }}
+              >
+                <CheckBox
+                  onClick={() => {
+                    console.log(this.state.isSelected);
+                    this.setState({
+                      isSelected: !this.state.isSelected,
+                    });
+                  }}
+                  isChecked={this.state.isSelected}
+                />
+                <Text style={{marginLeft:5, marginRight:20}}>
+                  By checking this box, you are agreeing to our terms of
+                  service.
+                </Text>
+              </View>
               <View style={{ marginTop: 20 }}>
                 <TouchableOpacity
                   style={styles.buttonStyle}
