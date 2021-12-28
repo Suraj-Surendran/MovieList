@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {Component} from 'react';
+import React, { Component } from "react";
 import {
   StyleSheet,
   View,
@@ -9,30 +9,31 @@ import {
   Dimensions,
   TextInput,
   TouchableOpacity,
-} from 'react-native';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import SelectDropdown from 'react-native-select-dropdown';
-import DatePicker from 'react-native-date-picker';
-
+} from "react-native";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+import SelectDropdown from "react-native-select-dropdown";
+import DatePicker from "react-native-date-picker";
+import { LocalColors } from "../colors/Colors";
 class SignUpScreen extends Component {
-  state = {date: new Date(), open: false};
+  state = { date: new Date(), open: false };
   onFocus = () => {
-    this.setState({open: true});
+    this.setState({ open: true });
   };
   render() {
     return (
       <ScrollView
         showsVerticalScrollIndicator={false}
-        style={styles.scrollContainer}>
+        style={styles.scrollContainer}
+      >
         {/* Logo background */}
         <View style={styles.row}>
           <View style={styles.image}>
             <Image
               style={styles.logo}
-              source={require('../assets/clapboard.png')}
+              source={require("../assets/clapboard.png")}
             />
           </View>
-          <View style={{width: '60%'}}>
+          <View style={{ width: "60%" }}>
             <View style={styles.column}>
               <View>
                 {/* First Name */}
@@ -61,7 +62,7 @@ class SignUpScreen extends Component {
                 onSelect={(selectedItem, index) => {
                   console.log(selectedItem, index);
                 }}
-                defaultButtonText={'Gender'}
+                defaultButtonText={"Gender"}
                 buttonTextAfterSelection={(selectedItem, index) => {
                   return selectedItem;
                 }}
@@ -70,16 +71,16 @@ class SignUpScreen extends Component {
                 }}
                 buttonStyle={styles.dropdown1BtnStyle}
                 buttonTextStyle={styles.dropdown1BtnTxtStyle}
-                renderDropdownIcon={isOpened => {
+                renderDropdownIcon={(isOpened) => {
                   return (
                     <FontAwesome
-                      name={isOpened ? 'angle-up' : 'angle-down'}
-                      color={'#444'}
+                      name={isOpened ? "angle-up" : "angle-down"}
+                      color={"#444"}
                       size={18}
                     />
                   );
                 }}
-                dropdownIconPosition={'right'}
+                dropdownIconPosition={"right"}
                 dropdownStyle={styles.dropdown1DropdownStyle}
                 rowStyle={styles.dropdown1RowStyle}
                 rowTextStyle={styles.dropdown1RowTxtStyle}
@@ -90,8 +91,8 @@ class SignUpScreen extends Component {
                 open={this.state.open}
                 date={this.state.date}
                 mode="date"
-                onConfirm={date => this.setState({date, open: false})}
-                onCancel={() => this.setState({open: false})}
+                onConfirm={(date) => this.setState({ date, open: false })}
+                onCancel={() => this.setState({ open: false })}
                 androidVariant="nativeAndroid"
               />
               <TextInput
@@ -121,25 +122,28 @@ class SignUpScreen extends Component {
                 placeholder="Username"
                 keyboardType="default"
               />
-              <View style={{marginTop: 20}}>
+              <View style={{ marginTop: 20 }}>
                 <TouchableOpacity
                   style={styles.buttonStyle}
-                  activeOpacity={0.5}>
+                  activeOpacity={0.5}
+                >
                   <Text style={styles.buttonTextStyle}>SIGN UP</Text>
                 </TouchableOpacity>
                 <View
                   style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}>
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
                   <Text>Already have an account</Text>
                 </View>
                 <TouchableOpacity
                   style={styles.buttonStyle}
                   activeOpacity={0.5}
                   onPress={() =>
-                    this.props.navigation.navigate('WelcomeScreen')
-                  }>
+                    this.props.navigation.navigate("WelcomeScreen")
+                  }
+                >
                   <Text style={styles.buttonTextStyle}>LOGIN</Text>
                 </TouchableOpacity>
               </View>
@@ -151,11 +155,11 @@ class SignUpScreen extends Component {
   }
 }
 
-const gender = ['Male', 'Female'];
+const gender = ["Male", "Female"];
 const styles = StyleSheet.create({
   scrollContainer: {
     flex: 1,
-    backgroundColor: '#e2e2e2',
+    backgroundColor: LocalColors.backgroundGrey,
   },
   logoContainer: {
     flex: 1.5,
@@ -166,38 +170,38 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
   },
   logo: {
-    alignContent: 'flex-end',
-    height: Dimensions.get('screen').height / 5.5,
-    width: '100%',
-    resizeMode: 'stretch',
+    alignContent: "flex-end",
+    height: Dimensions.get("screen").height / 5.5,
+    width: "100%",
+    resizeMode: "stretch",
   },
   image: {
-    justifyContent: 'space-evenly',
-    width: '40%',
+    justifyContent: "space-evenly",
+    width: "40%",
   },
   row: {
     flex: 1,
-    flexDirection: 'row',
-    width: '100%',
+    flexDirection: "row",
+    width: "100%",
     top: 20,
   },
   column: {
     flex: 1,
-    flexDirection: 'column',
-    width: '100%',
+    flexDirection: "column",
+    width: "100%",
     paddingRight: 20,
     paddingBottom: 20,
   },
   background: {
     flex: 0.5,
-    justifyContent: 'flex-start',
-    alignItems: 'baseline',
-    height: Dimensions.get('screen').height / 8.5,
-    width: '100%',
+    justifyContent: "flex-start",
+    alignItems: "baseline",
+    height: Dimensions.get("screen").height / 8.5,
+    width: "100%",
     top: 20,
   },
   login: {
-    height: '100%',
+    height: "100%",
   },
   inputField: {
     padding: 10,
@@ -207,27 +211,27 @@ const styles = StyleSheet.create({
     fontSize: 18,
     borderWidth: 1,
     borderRadius: 10,
-    borderColor: 'black',
-    backgroundColor: '#e2e2e2',
+    borderColor: "black",
+    backgroundColor: LocalColors.backgroundGrey,
   },
   buttonView: {
     margin: 20,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
     marginVertical: 20,
   },
 
   buttonStyle: {
-    backgroundColor: '#1b1919',
+    backgroundColor: LocalColors.storyBoardBlack,
     borderWidth: 0,
-    color: '#FFFFFF',
-    borderColor: '#1b1919',
+    color: LocalColors.white,
+    borderColor: LocalColors.storyBoardBlack,
     height: 45,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     borderRadius: 30,
     marginLeft: 35,
     marginRight: 35,
@@ -235,11 +239,11 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   buttonTextStyle: {
-    color: 'white',
+    color: LocalColors.white,
   },
 
   dropdown1BtnStyle: {
-    width: '93.5%',
+    width: "93.5%",
     padding: 10,
     marginTop: 20,
     marginLeft: 10,
@@ -247,23 +251,23 @@ const styles = StyleSheet.create({
     fontSize: 18,
     borderWidth: 1,
     borderRadius: 10,
-    borderColor: 'black',
-    backgroundColor: '#e2e2e2',
+    borderColor: LocalColors.black,
+    backgroundColor: LocalColors.backgroundGrey,
   },
   dropdown1BtnTxtStyle: {
-    color: 'grey',
-    textAlign: 'left',
+    color: LocalColors.grey,
+    textAlign: "left",
   },
   dropdown1DropdownStyle: {
-    backgroundColor: 'white',
+    backgroundColor: LocalColors.white,
   },
   dropdown1RowStyle: {
-    backgroundColor: 'white',
-    borderBottomColor: '#C5C5C5',
+    backgroundColor: LocalColors.white,
+    borderBottomColor: "#C5C5C5",
   },
   dropdown1RowTxtStyle: {
-    color: 'black',
-    textAlign: 'left',
+    color: LocalColors.black,
+    textAlign: "left",
   },
 });
 export default SignUpScreen;
