@@ -7,6 +7,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import DashboardScreen from './app/screens/DashboardScreen';
 import FavoriteListScreen from './app/screens/FavoriteListScreen';
 import MovieListScreen from './app/screens/MovieListScreen';
+import GenreSelectScreen from './app/screens/GenreSelectScreen';
 const Stack = createStackNavigator();
 function NavStack() {
   return (
@@ -34,6 +35,11 @@ function NavStack() {
       <Stack.Screen
         name="MovieListScreen"
         component={MovieListScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="GenreSelectScreen"
+        component={GenreSelectScreen}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
