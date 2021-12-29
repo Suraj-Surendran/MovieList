@@ -147,6 +147,10 @@ class SignUpScreen extends Component {
                 <TouchableOpacity
                   style={styles.buttonStyle}
                   activeOpacity={0.5}
+                  activeOpacity={0.5}
+                  onPress={() =>
+                    this.props.navigation.navigate("GenreSelectScreen")
+                  }
                 >
                   <Text style={styles.buttonTextStyle}>SIGN UP</Text>
                 </TouchableOpacity>
